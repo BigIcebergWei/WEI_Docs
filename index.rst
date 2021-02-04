@@ -12,9 +12,12 @@ WEI_Sphinx_Test
 
 
 
-Indices and tables
-==================
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+Git
+=============
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   Git总结
