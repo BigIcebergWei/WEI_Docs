@@ -1,0 +1,288 @@
+.. _header-n0:
+
+网站收录：
+==========
+
+.. contents::
+.. _header-n3:
+
+官网类
+------
+
+| 四六级报名。
+| http://cet.neea.edu.cn/
+| http://cet-bm.neea.edu.cn
+
+| 全国大学生电子设计大赛培训网。
+| https://www.nuedc-training.com.cn/
+
+| 意法半导体中国网。
+| https://www.stmcu.org.cn/
+
+| TensorFlow官网，查询各类函数API。
+| https://tensorflow.google.cn/
+
+| Arduino 中文社区
+| https://www.arduino.cn/
+
+.. _header-n9:
+
+个人站点
+~~~~~~~~
+
+| cnblog个人博客。
+| https://www.cnblogs.com/Iceberg2020/
+
+| GItHub个人首页。
+| https://github.com/BigIcebergWei
+
+.. _header-n12:
+
+大佬站点
+~~~~~~~~
+
+| 稚辉君。
+| http://pengzhihui.xyz
+
+| 野火官网
+| https://embedfire.com/
+
+.. _header-n15:
+
+论坛
+~~~~
+
+| 野火电子论坛。
+| https://www.firebbs.cn/forum.php
+
+.. _header-n17:
+
+天大
+~~~~
+
+| 天津大学教育教学信息管理系统。
+| http://classes.tju.edu.cn/eams/homeExt.action
+
+| 天津大学电气自动化与信息工程学院官网。
+| http://seea.tju.edu.cn/
+
+| 天大邮箱。
+| https://mail.tju.edu.cn/
+
+| 天大第二课堂成绩查询。
+| http://202.113.5.169/extraEdu/WS000/stuLoginInit.action
+
+| 天津大学办公网。
+| http://e.tju.edu.cn/
+
+.. _header-n23:
+
+软件官网
+~~~~~~~~
+
+| Git
+| https://git-scm.com/
+| Git镜像
+| https://npm.taobao.org/mirrors/git-for-windows/
+
+| Read the Docs
+| https://readthedocs.org/
+
+| Pandoc
+| https://github.com/jgm/pandoc/releases
+
+.. _header-n28:
+
+有用类
+------
+
+.. _header-n29:
+
+查东西
+~~~~~~
+
+| 万维百科
+| https://www.wanweibaike.com/Index/mobile
+
+| 中国知网
+| https://www.cnki.net/
+
+| iData，知网镜像网站
+| https://www.cn-ki.net/
+
+| 英语词根词源词典
+| http://www.etymon.cn/
+
+.. _header-n34:
+
+学东西
+~~~~~~
+
+| 菜鸟编程教程
+| https://www.runoob.com/
+
+| Topbook网站，各类高效应用
+| https://topbook.cc/overview
+
+.. _header-n37:
+
+应用工具
+~~~~~~~~
+
+| 路过图床，单个图片最大10M，永久免费
+| https://imgchr.com
+
+| draw.io，完全免费的流程图绘制工具
+| https://app.diagrams.net/
+
+| 讯飞听见，字幕自动生成。付费
+| https://www.iflyrec.com/
+
+| 秀米，公众号图文编辑器。
+| https://v.xiumi.us/board/v5/4KLj0/2271005
+
+| 油猴 以及脚本列表。
+| https://www.tampermonkey.net/
+| https://greasyfork.org/zh-CN/scripts/
+
+.. _header-n43:
+
+设计工具
+~~~~~~~~
+
+   几乎都是外网的，比较卡顿。
+
+| vector-creator，免费插画设计。
+| https://icons8.com/vector-creator
+
+| Humaaans，免费插画设计。
+| https://blush.design/collections/humaaans
+
+| Yasai的设计网站，有趣的Gif制作。
+| https://wangyasai.github.io/
+
+.. _header-n50:
+
+资源类
+------
+
+| 网站服务器查询
+| https://www.netcraft.com/
+
+| 清华开源软件镜像
+| https://mirrors.tuna.tsinghua.edu.cn/
+
+.. _header-n53:
+
+音频
+~~~~
+
+| 音乐搜索器，免费下载各类音乐。（注意版权）
+| http://www.musictool.top/
+
+| 淘声网，无版权音频库。
+| https://www.tosound.com/search
+
+| 耳聆网，音频素材库。
+| https://www.ear0.com/
+
+.. _header-n57:
+
+电子书
+~~~~~~
+
+| Sobooks网站，免费电子书。
+| https://sobooks.cc/
+
+.. _header-n59:
+
+影视、图片
+~~~~~~~~~~
+
+| BT之家
+| www.647.net
+
+| Wallhaven，免费壁纸站。
+| https://wallhaven.cc/
+
+| 免费矢量图网站。
+| https://www.iconfinder.com/
+
+| 阿里巴巴矢量图标库，免费矢量图。
+| https://www.iconfont.cn/
+
+| Pexels，免费摄影、视频素材（视频不行，网络原因）
+| https://www.pexels.com/zh-cn/
+
+.. _header-n65:
+
+字体、PPT
+~~~~~~~~~
+
+| 第一PPT，免费PPT模板。
+| http://www.1ppt.com/
+
+| 自由字体，免费字体网站
+| https://ziyouziti.com/
+
+.. _header-n69:
+
+有趣类
+------
+
+.. _header-n70:
+
+创作
+~~~~
+
+| 谷歌音乐实验室
+| https://musiclab.chromeexperiments.com/Song-Maker/
+
+| 解压电音
+| https://aidn.jp/mikutap/
+
+| 狗屁不通文章生成器
+| https://suulnnka.github.io/BullshitGenerator/
+
+| 流体动画
+| https://paveldogreat.github.io/WebGL-Fluid-Simulation/
+
+.. _header-n75:
+
+欣赏
+~~~~
+
+| 欣赏画作
+| https://en.gallerix.ru/
+
+| 濒临灭绝的动物
+| http://www.webhek.com/misc-res/species-in-pieces/#
+
+| 地球时间线
+| http://timelineofearth.com/
+
+| Edge浏览器小游戏-冲浪
+| edge://surf/hanshu
+
+.. _header-n83:
+
+淘汰区
+------
+
+| Processon，画流程图，可在线协作。
+| https://www.processon.com/
+
+| 计算机等级考试
+| http://ncre.neea.edu.cn/
+
+| 熊猫搜书，搜书集合体。
+| https://ebook.huzerui.com/#/
+
+| 虫部落，搜书集合体。
+| http://magnet.chongbuluo.com/
+
+| Oeasy教程合集。
+| http://oeasy.org/
+
+| 网易见外工作台，字幕自动生成。免费
+| https://jianwai.youdao.com/index/0

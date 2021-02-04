@@ -5,19 +5,22 @@
 
 WEI_Sphinx_Test
 ===========================================
+.. toctree::
+   :maxdepth: 1
+   :caption: 前言
+
+   前言
+
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
-
-
-
-Git
-=============
-
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 1
+   :caption: 学习笔记
 
    Git总结
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: 分享
+
+   网站收录
