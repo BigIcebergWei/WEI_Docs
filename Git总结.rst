@@ -596,8 +596,7 @@ Git 切换分支的速度非常快。
 
 当我们创建新的分支，例如\ ``dev``\ 时，Git新建了一个指针叫\ ``dev``\ ，指向\ ``master``\ 相同的提交，再把\ ``HEAD``\ 指向\ ``dev``\ ，就表示当前分支在\ ``dev``\ 上：
 
-.. figure:: https://www.liaoxuefeng.com/files/attachments/001384908811773187a597e2d844eefb11f5cf5d56135ca000/0
-   :alt: 
+|image4|
 
 .. raw:: html
 
@@ -607,8 +606,7 @@ Git 切换分支的速度非常快。
 
 不过，从现在开始，对工作区的修改和提交就是针对\ ``dev``\ 分支了，比如新提交一次后，\ ``dev``\ 指针往前移动一步，而\ ``master``\ 指针不变：
 
-.. figure:: https://www.liaoxuefeng.com/files/attachments/0013849088235627813efe7649b4f008900e5365bb72323000/0
-   :alt: 
+[|image5|
 
 .. raw:: html
 
@@ -616,8 +614,7 @@ Git 切换分支的速度非常快。
 
 假如我们在\ ``dev``\ 上的工作完成了，就可以把\ ``dev``\ 合并到\ ``master``\ 上。Git怎么合并呢？最简单的方法，就是直接把\ ``master``\ 指向\ ``dev``\ 的当前提交，就完成了合并：
 
-.. figure:: https://www.liaoxuefeng.com/files/attachments/00138490883510324231a837e5d4aee844d3e4692ba50f5000/0
-   :alt: 
+|image6|
 
 .. raw:: html
 
@@ -627,8 +624,7 @@ Git 切换分支的速度非常快。
 
 合并完分支后，甚至可以删除\ ``dev``\ 分支。删除\ ``dev``\ 分支就是把\ ``dev``\ 指针给删掉，删掉后，我们就剩下了一条\ ``master``\ 分支：
 
-.. figure:: https://www.liaoxuefeng.com/files/attachments/001384908867187c83ca970bf0f46efa19badad99c40235000/0
-   :alt: 
+|image7|
 
 .. raw:: html
 
@@ -697,9 +693,18 @@ Git。
 五、远程仓库
 ------------
 
+还没写
+
 .. |image1| image:: https://s3.ax1x.com/2021/02/03/yMS858.png
    :target: https://imgchr.com/i/yMS858
 .. |image2| image:: https://s3.ax1x.com/2021/02/03/ylpeFP.png
    :target: https://imgchr.com/i/ylpeFP
 .. |image3| image:: https://s3.ax1x.com/2021/02/03/yl98je.jpg
    :target: https://imgchr.com/i/yl98je
+.. |image4| image:: https://s3.ax1x.com/2021/02/04/y3Zu4g.png
+   :target: https://imgchr.com/i/y3Zu4g
+.. |image5| image:: https://s3.ax1x.com/2021/02/04/y3ZnUS.png
+.. |image6| image:: https://s3.ax1x.com/2021/02/04/y3ZMCQ.png
+   :target: https://imgchr.com/i/y3ZMCQ
+.. |image7| image:: https://s3.ax1x.com/2021/02/04/y3ZmE8.png
+   :target: https://imgchr.com/i/y3ZmE8
