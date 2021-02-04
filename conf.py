@@ -19,7 +19,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'WEI_Sphinx_Test'
+project = 'WEI_Docs'
 copyright = '2021, WEI'
 author = 'WEI'
 
