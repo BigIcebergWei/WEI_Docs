@@ -1,0 +1,1 @@
+Search.setIndex({docnames:["index","wei"],envversion:55,filenames:["index.rst","wei.rst"],objects:{},objnames:{},objtypes:{},terms:{"\u641c\u7d22\u9875\u9762":0,"\u6a21\u5757\u7d22\u5f15":0,"\u7d22\u5f15":0,genindesssx:[]},titles:["WEI_Sphinx_Test","&lt;no title&gt;"],titleterms:{document:[],indic:0,tabl:0,wei_sphinx_test:0,welcom:[]}})
