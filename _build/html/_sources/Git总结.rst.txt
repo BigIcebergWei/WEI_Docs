@@ -693,7 +693,58 @@ Git。
 五、远程仓库
 ------------
 
-还没写
+为了便于管理，Git要求每个远程主机都必须指定一个主机名。克隆版本库的时候，所使用的远程主机自动被Git命名为\ ``origin``\ 。如果想用其他的主机名，需要用\ ``git clone``\ 命令的\ ``-o``\ 选项指定。
+
+.. _header-n262:
+
+常用命令
+~~~~~~~~
+
+.. code:: shell
+
+   # 下载远程仓库的所有变动
+   $ git fetch [remote]
+   
+   # 显示所有远程仓库
+   $ git remote -v
+   
+   # 显示某个远程仓库的信息
+   $ git remote show [remote]
+   
+   # 增加一个新的远程仓库，并命名
+   $ git remote add [shortname] [url]
+   
+   # 取回远程仓库的变化，并与本地分支合并
+   $ git pull [remote] [branch]
+   
+   # 上传本地指定分支到远程仓库
+   $ git push [remote] [branch]
+   
+   # 强行推送当前分支到远程仓库，即使有冲突
+   $ git push [remote] --force
+   
+   # 推送所有分支到远程仓库
+   $ git push [remote] --all
+   
+   #简单查看远程---所有仓库
+   git remote  （只能查看远程仓库的名字）#查看单个仓库
+   git remote show [remote-branch-name]
+   
+   #新建远程仓库
+   git remote add [branchname]  [url]
+   
+   #修改远程仓库
+   git remote rename [oldname] [newname]
+   
+   #删除远程仓库
+   git remote rm [remote-name]
+   
+   #获取远程仓库数据
+   git fetch [remote-name] (获取仓库所有更新，但不自动合并当前分支)
+   git pull (获取仓库所有更新，并自动合并到当前分支)
+   
+   #上传数据，如git push origin master
+   git push [remote-name] [branch]
 
 .. |image1| image:: https://s3.ax1x.com/2021/02/03/yMS858.png
    :target: https://imgchr.com/i/yMS858
