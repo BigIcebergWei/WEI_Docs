@@ -14,6 +14,3 @@
 
    <iframe height=450 width=720 src="//player.bilibili.com/player.html?aid=331394387&bvid=BV1EA411u7kh&cid=289935518&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
-.. raw:: html
-
-   <iframe width="560" height="315" src="http://player.youku.com/embed/XNDA0MDQzNzIxMg" frameborder="0" allowfullscreen style="position: absolute;height: 100%;width: 100%;">
