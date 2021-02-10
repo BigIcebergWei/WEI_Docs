@@ -48,7 +48,7 @@ Git
 
 -  代码保密性差，一旦开发者把整个库克隆下来就可以完全公开所有代码和版本信息。
 
-.. _header-n31:
+.. _header-n33:
 
 2、Git 常用术语
 ~~~~~~~~~~~~~~~
@@ -121,12 +121,25 @@ Git
 
 标记指的是某个分支某个特定时间点的状态。通过标记，可以很方便的切换到标记时的状态。
 
-.. _header-n95:
+.. _header-n267:
+
+3、个人总结
+~~~~~~~~~~~
+
+Git重点就是几个工作区域，然后改变文件状态将其转移至不同的区域。
+
+然后通过一些指令可以复原文件的版本。
+
+多人合作或作希望作出分支尝试时使用分支指令，然后学会合并分支就行了。
+
+远程仓库就是本地仓库的拷贝。
+
+.. _header-n97:
 
 二、Git 理论基础
 ----------------
 
-.. _header-n96:
+.. _header-n98:
 
 1、工作区域
 ~~~~~~~~~~~
@@ -146,9 +159,9 @@ Git
 **历史仓库**\ ：存放所有提交的版本的信息。Head
 指针指向最近一次提交的版本。
 
-**远程仓库**\ ：远程仓库，托管代码的服务器，保存完整的仓库。
+**远程仓库**\ ：本地仓库的拷贝，就是在托管代码的服务器上保存完整的仓库。
 
-.. _header-n105:
+.. _header-n107:
 
 2、工作流程
 ~~~~~~~~~~~
@@ -166,12 +179,71 @@ Git 的工作流程一般是这样的：
 因此，Git
 管理的文件有三种常见状态：已修改(modified)，已暂存(staged)，已提交(committed)。
 
-.. _header-n119:
+.. _header-n310:
+
+3、Git 分支
+~~~~~~~~~~~
+
+.. _header-n313:
+
+1）分支策略
+^^^^^^^^^^^
+
+在分支上独立工作。
+
+master主分支应该非常稳定，用来发布新版本，一般情况下不允许在上面工作，工作一般情况下在新建的dev分支上工作，工作完后，比如上要发布，或者说dev分支代码稳定后可以合并到主分支master上来。
+
+Git 切换分支的速度非常快。
+
+.. _header-n317:
+
+2）分支原理
+^^^^^^^^^^^
+
+当我们创建新的分支，例如\ ``dev``\ 时，Git新建了一个指针叫\ ``dev``\ ，指向\ ``master``\ 相同的提交，再把\ ``HEAD``\ 指向\ ``dev``\ ，就表示当前分支在\ ``dev``\ 上：
+
+|image2|
+
+.. raw:: html
+
+   <html xmlns="http://www.w3.org/1999/xhtml"><head></head><body><center>图：分支讲解1</center></body></html>
+
+你看，Git创建一个分支很快，因为除了增加一个\ ``dev``\ 指针，改改\ ``HEAD``\ 的指向，工作区的文件都没有任何变化！
+
+不过，从现在开始，对工作区的修改和提交就是针对\ ``dev``\ 分支了，比如新提交一次后，\ ``dev``\ 指针往前移动一步，而\ ``master``\ 指针不变：
+
+[|image3|
+
+.. raw:: html
+
+   <html xmlns="http://www.w3.org/1999/xhtml"><head></head><body><center>图：分支讲解2</center></body></html>
+
+假如我们在\ ``dev``\ 上的工作完成了，就可以把\ ``dev``\ 合并到\ ``master``\ 上。Git怎么合并呢？最简单的方法，就是直接把\ ``master``\ 指向\ ``dev``\ 的当前提交，就完成了合并：
+
+|image4|
+
+.. raw:: html
+
+   <html xmlns="http://www.w3.org/1999/xhtml"><head></head><body><center>图：分支讲解3</center></body></html>
+
+所以Git合并分支也很快！就改改指针，工作区内容也不变！
+
+合并完分支后，甚至可以删除\ ``dev``\ 分支。删除\ ``dev``\ 分支就是把\ ``dev``\ 指针给删掉，删掉后，我们就剩下了一条\ ``master``\ 分支：
+
+|image5|
+
+.. raw:: html
+
+   <html xmlns="http://www.w3.org/1999/xhtml"><head></head><body><center>图：分支讲解4</center></body></html>
+
+.. _header-n332:
+
+.. _header-n121:
 
 三、Git 使用
 ------------
 
-.. _header-n120:
+.. _header-n122:
 
 1、下载与安装
 ~~~~~~~~~~~~~
@@ -187,7 +259,7 @@ Git 各版本之间有可能有冲突，注意版本问题。
 
 没有特殊需求的话默认安装即可。
 
-.. _header-n126:
+.. _header-n128:
 
 软件使用
 ^^^^^^^^
@@ -199,17 +271,17 @@ Windows，GUI 是图形界面操作。
 
 优先使用 Bash，熟练一点之后使用 GUI 会更方便一些。
 
-.. _header-n131:
+.. _header-n133:
 
 2、Git 配置
 ~~~~~~~~~~~
 
 ``git config``
 
-.. _header-n133:
+.. _header-n135:
 
-（1）查看配置
-^^^^^^^^^^^^^
+1）查看配置
+^^^^^^^^^^^
 
 Git 的配置有三种级别：system、global、local。
 
@@ -232,10 +304,10 @@ Git 的配置有三种级别：system、global、local。
    #local config
    #当前仓库的配置信息
 
-.. _header-n136:
+.. _header-n138:
 
-（2）Git 配置文件
-^^^^^^^^^^^^^^^^^
+2）Git 配置文件
+^^^^^^^^^^^^^^^
 
 在Windows系统中，Git在$HOME目录中查找 .gitconfig 文件（一般位于
 C:\Documents and Settings$USER下）
@@ -247,10 +319,10 @@ C:\Documents and Settings$USER下）
 
 3. 位于 Git 项目目录中的 .git/config：适用于特定git项目的配置。
 
-.. _header-n145:
+.. _header-n147:
 
-（3）用户名与邮箱
-^^^^^^^^^^^^^^^^^
+3）用户名与邮箱
+^^^^^^^^^^^^^^^
 
 安装 Git 后首先要做的事情是设置你的用户名称和 e-mail 地址。
 
@@ -261,10 +333,10 @@ C:\Documents and Settings$USER下）
    git config --global user.name "BigIceberg"  			#名称
    git config --global user.email 357230620@qq.com   		#邮箱
 
-.. _header-n149:
+.. _header-n151:
 
-（4）添加或删除配置项
-^^^^^^^^^^^^^^^^^^^^^
+4）添加或删除配置项
+^^^^^^^^^^^^^^^^^^^
 
 .. code:: shell
 
@@ -281,10 +353,10 @@ C:\Documents and Settings$USER下）
    git config --global color.ui true   	#打开所有的默认终端着色
    git config --global alias.ci commit   	#令别名 ci 是 commit 的别名
 
-.. _header-n153:
+.. _header-n155:
 
-（5）常见配置项
-^^^^^^^^^^^^^^^
+5）常见配置项
+^^^^^^^^^^^^^
 
 .. code:: shell
 
@@ -310,28 +382,28 @@ C:\Documents and Settings$USER下）
    git config user.name  #获得用户名
    git config core.filemode false  #忽略修改权限的文件  
 
-.. _header-n157:
+.. _header-n159:
 
 四、Git 操作
 ------------
 
-|image2|
+|image6|
 
 .. raw:: html
 
    <html xmlns="http://www.w3.org/1999/xhtml"><head></head><body><center>图：Git 常用操作</center></body></html>
 
-.. _header-n160:
+.. _header-n162:
 
 1、获取 Git 仓库
 ~~~~~~~~~~~~~~~~
 
 主要由两种方式：新建、克隆远程仓库
 
-.. _header-n162:
+.. _header-n164:
 
-（1）新建
-^^^^^^^^^
+1）新建
+^^^^^^^
 
 在工作目录下：
 
@@ -345,10 +417,10 @@ C:\Documents and Settings$USER下）
 
    git init [Directory]
 
-.. _header-n167:
+.. _header-n169:
 
-（2）克隆远程仓库
-^^^^^^^^^^^^^^^^^
+2）克隆远程仓库
+^^^^^^^^^^^^^^^
 
 将远程服务器上的仓库完全镜像一份至本地，而不是取某一个特定版本，所以不是
 checkout，语法格式如下：
@@ -358,24 +430,24 @@ checkout，语法格式如下：
    # 克隆一个项目和它的整个代码历史(版本信息)至当前目录
    git clone [url]
 
-.. _header-n170:
+.. _header-n172:
 
 2、Git 文件操作
 ~~~~~~~~~~~~~~~
 
-.. _header-n171:
+.. _header-n173:
 
-（1）文件状态
-^^^^^^^^^^^^^
+1）文件状态
+^^^^^^^^^^^
 
-.. _header-n172:
+.. _header-n174:
 
 文件状态转换
 ''''''''''''
 
 版本控制就是对文件的版本控制，要对文件进行修改、提交等操作，首先要知道文件当前在什么状态，不然可能会提交了现在还不想提交的文件，或者要提交的文件没提交上。
 
-|image3|
+|image7|
 
 .. raw:: html
 
@@ -402,23 +474,23 @@ checkout，语法格式如下：
 
 -  **Commited**\ ：已提交，成为仓库中一个正式明确的版本。
 
-.. _header-n187:
+.. _header-n189:
 
 查看文件状态
 ''''''''''''
 
 .. code:: shell
 
-   #查看指定文件状态
-   git status [filename]
-   
-   #查看所有文件状态
+   #查看指定文件状态
+   git status [filename]
+
+   #查看所有文件状态
    git status
 
-.. _header-n189:
+.. _header-n191:
 
-（2）增删文件/目录
-^^^^^^^^^^^^^^^^^^
+2）增删文件/目录
+^^^^^^^^^^^^^^^^
 
 若想增加文件或目录到仓库版本中，须先移入暂存区。
 
@@ -447,37 +519,37 @@ checkout，语法格式如下：
 
 .. code:: shell
 
-   git clean [options] 
+   git clean [options] 
    #一般会加上参数-df，-d表示包含目录，-f表示强制清除。
 
-.. _header-n196:
+.. _header-n198:
 
-（3）文件修改
-^^^^^^^^^^^^^
+3）文件修改
+^^^^^^^^^^^
 
-.. _header-n197:
+.. _header-n199:
 
 差异
 ''''
 
 .. code:: shell
 
-   #显示WorkSpace中的文件和暂存区文件的差异。
+   #显示WorkSpace中的文件和暂存区文件的差异。
    git diff [files]
 
 .. code:: shell
 
-   #比较暂存区的文件与之前已经提交过的文件
+   #比较暂存区的文件与之前已经提交过的文件
    git diff --cached [files]
 
 .. code:: shell
 
-   #比较repo与工作空间中的文件差异
+   #比较repo与工作空间中的文件差异
    git diff HEAD~n [files]
 
 若不加 files 则查看所有有改动的文件。
 
-.. _header-n273:
+.. _header-n204:
 
 签出
 ''''
@@ -512,10 +584,10 @@ checkout是git最常用的命令之一，同时也是一个很危险的命令，
    #如果不加commit_id，那么表示恢复文件到本地版本库中最新的状态。
    #file_name 为 . 时表示所有文件。
 
-.. _header-n203:
+.. _header-n208:
 
-（4）忽略文件
-^^^^^^^^^^^^^
+4）忽略文件
+^^^^^^^^^^^
 
 有些时候我们不想把某些文件纳入版本控制中，比如数据库文件，临时文件，设计文件等
 
@@ -542,10 +614,10 @@ checkout是git最常用的命令之一，同时也是一个很危险的命令，
    build/ #忽略build/目录下的所有文件
    doc/*.txt #会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
 
-.. _header-n219:
+.. _header-n224:
 
-（5）文件提交
-^^^^^^^^^^^^^
+5）文件提交
+^^^^^^^^^^^
 
 通过add只是将文件或目录添加到了index暂存区，使用commit可以实现将暂存区的文件提交到本地仓库。
 
@@ -576,10 +648,10 @@ checkout是git最常用的命令之一，同时也是一个很危险的命令，
 
    git reset --hard HEAD~1
 
-.. _header-n224:
+.. _header-n229:
 
-（5）日志与历史
-^^^^^^^^^^^^^^^
+5）日志与历史
+^^^^^^^^^^^^^
 
 查看提交日志
 
@@ -599,64 +671,15 @@ checkout是git最常用的命令之一，同时也是一个很危险的命令，
 
    git reflog
 
-.. _header-n231:
+.. _header-n236:
 
 3、Git 分支
 ~~~~~~~~~~~
 
-**分支策略**
+.. _header-n256:
 
-在分支上独立工作。
-
-master主分支应该非常稳定，用来发布新版本，一般情况下不允许在上面工作，工作一般情况下在新建的dev分支上工作，工作完后，比如上要发布，或者说dev分支代码稳定后可以合并到主分支master上来。
-
-Git 切换分支的速度非常快。
-
-.. _header-n236:
-
-（1）分支原理
-^^^^^^^^^^^^^
-
-当我们创建新的分支，例如\ ``dev``\ 时，Git新建了一个指针叫\ ``dev``\ ，指向\ ``master``\ 相同的提交，再把\ ``HEAD``\ 指向\ ``dev``\ ，就表示当前分支在\ ``dev``\ 上：
-
-|image4|
-
-.. raw:: html
-
-   <html xmlns="http://www.w3.org/1999/xhtml"><head></head><body><center>图：分支讲解1</center></body></html>
-
-你看，Git创建一个分支很快，因为除了增加一个\ ``dev``\ 指针，改改\ ``HEAD``\ 的指向，工作区的文件都没有任何变化！
-
-不过，从现在开始，对工作区的修改和提交就是针对\ ``dev``\ 分支了，比如新提交一次后，\ ``dev``\ 指针往前移动一步，而\ ``master``\ 指针不变：
-
-[|image5|
-
-.. raw:: html
-
-   <html xmlns="http://www.w3.org/1999/xhtml"><head></head><body><center>图：分支讲解2</center></body></html>
-
-假如我们在\ ``dev``\ 上的工作完成了，就可以把\ ``dev``\ 合并到\ ``master``\ 上。Git怎么合并呢？最简单的方法，就是直接把\ ``master``\ 指向\ ``dev``\ 的当前提交，就完成了合并：
-
-|image6|
-
-.. raw:: html
-
-   <html xmlns="http://www.w3.org/1999/xhtml"><head></head><body><center>图：分支讲解3</center></body></html>
-
-所以Git合并分支也很快！就改改指针，工作区内容也不变！
-
-合并完分支后，甚至可以删除\ ``dev``\ 分支。删除\ ``dev``\ 分支就是把\ ``dev``\ 指针给删掉，删掉后，我们就剩下了一条\ ``master``\ 分支：
-
-|image7|
-
-.. raw:: html
-
-   <html xmlns="http://www.w3.org/1999/xhtml"><head></head><body><center>图：分支讲解4</center></body></html>
-
-.. _header-n251:
-
-（2）分支中常用指令
-^^^^^^^^^^^^^^^^^^^
+分支中常用指令
+^^^^^^^^^^^^^^
 
 .. code:: shell
 
@@ -703,82 +726,82 @@ Git 切换分支的速度非常快。
    git push origin --delete [branch-name]
    git branch -dr [remote/branch]
 
-.. _header-n254:
+.. _header-n259:
 
-（4）Git GUI
-~~~~~~~~~~~~
+4、Git GUI
+~~~~~~~~~~
 
 通过命令行可以深刻的理解 Git，Git GUI 或 IDE 插件却可以更加直观操作
 Git。
 
-.. _header-n257:
+.. _header-n262:
 
 五、远程仓库
 ------------
 
 为了便于管理，Git要求每个远程主机都必须指定一个主机名。克隆版本库的时候，所使用的远程主机自动被Git命名为\ ``origin``\ 。如果想用其他的主机名，需要用\ ``git clone``\ 命令的\ ``-o``\ 选项指定。
 
-.. _header-n259:
+.. _header-n264:
 
 常用命令
 ~~~~~~~~
 
 .. code:: shell
 
-   # 下载远程仓库的所有变动
-   $ git fetch [remote]
-   
-   # 显示所有远程仓库
-   $ git remote -v
-   
-   # 显示某个远程仓库的信息
-   $ git remote show [remote]
-   
-   # 增加一个新的远程仓库，并命名
-   $ git remote add [shortname] [url]
-   
-   # 取回远程仓库的变化，并与本地分支合并
-   $ git pull [remote] [branch]
-   
-   # 上传本地指定分支到远程仓库
-   $ git push [remote] [branch]
-   
-   # 强行推送当前分支到远程仓库，即使有冲突
-   $ git push [remote] --force
-   
-   # 推送所有分支到远程仓库
-   $ git push [remote] --all
-   
-   #简单查看远程---所有仓库
-   git remote  （只能查看远程仓库的名字）#查看单个仓库
-   git remote show [remote-branch-name]
-   
-   #新建远程仓库
-   git remote add [branchname]  [url]
-   
-   #修改远程仓库
-   git remote rename [oldname] [newname]
-   
-   #删除远程仓库
-   git remote rm [remote-name]
-   
-   #获取远程仓库数据
-   git fetch [remote-name] (获取仓库所有更新，但不自动合并当前分支)
-   git pull (获取仓库所有更新，并自动合并到当前分支)
-   
-   #上传数据，如git push origin master
+   # 下载远程仓库的所有变动
+   $ git fetch [remote]
+
+   # 显示所有远程仓库
+   $ git remote -v
+
+   # 显示某个远程仓库的信息
+   $ git remote show [remote]
+
+   # 增加一个新的远程仓库，并命名
+   $ git remote add [shortname] [url]
+
+   # 取回远程仓库的变化，并与本地分支合并
+   $ git pull [remote] [branch]
+
+   # 上传本地指定分支到远程仓库
+   $ git push [remote] [branch]
+
+   # 强行推送当前分支到远程仓库，即使有冲突
+   $ git push [remote] --force
+
+   # 推送所有分支到远程仓库
+   $ git push [remote] --all
+
+   #简单查看远程---所有仓库
+   git remote  （只能查看远程仓库的名字）#查看单个仓库
+   git remote show [remote-branch-name]
+
+   #新建远程仓库
+   git remote add [branchname]  [url]
+
+   #修改远程仓库
+   git remote rename [oldname] [newname]
+
+   #删除远程仓库
+   git remote rm [remote-name]
+
+   #获取远程仓库数据
+   git fetch [remote-name] (获取仓库所有更新，但不自动合并当前分支)
+   git pull (获取仓库所有更新，并自动合并到当前分支)
+
+   #上传数据，如git push origin master
    git push [remote-name] [branch]
 
 .. |image1| image:: https://s3.ax1x.com/2021/02/03/yMS858.png
    :target: https://imgchr.com/i/yMS858
-.. |image2| image:: https://s3.ax1x.com/2021/02/03/ylpeFP.png
-   :target: https://imgchr.com/i/ylpeFP
-.. |image3| image:: https://s3.ax1x.com/2021/02/03/yl98je.jpg
-   :target: https://imgchr.com/i/yl98je
-.. |image4| image:: https://s3.ax1x.com/2021/02/04/y3Zu4g.png
+.. |image2| image:: https://s3.ax1x.com/2021/02/04/y3Zu4g.png
    :target: https://imgchr.com/i/y3Zu4g
-.. |image5| image:: https://s3.ax1x.com/2021/02/04/y3ZnUS.png
-.. |image6| image:: https://s3.ax1x.com/2021/02/04/y3ZMCQ.png
+.. |image3| image:: https://s3.ax1x.com/2021/02/04/y3ZnUS.png
+.. |image4| image:: https://s3.ax1x.com/2021/02/04/y3ZMCQ.png
    :target: https://imgchr.com/i/y3ZMCQ
-.. |image7| image:: https://s3.ax1x.com/2021/02/04/y3ZmE8.png
+.. |image5| image:: https://s3.ax1x.com/2021/02/04/y3ZmE8.png
    :target: https://imgchr.com/i/y3ZmE8
+.. |image6| image:: https://s3.ax1x.com/2021/02/03/ylpeFP.png
+   :target: https://imgchr.com/i/ylpeFP
+.. |image7| image:: https://s3.ax1x.com/2021/02/03/yl98je.jpg
+   :target: https://imgchr.com/i/yl98je
