@@ -4,11 +4,13 @@ Git总结
 =======
 
 .. contents::
-资料：https://www.runoob.com/git/git-tutorial.html
+参考资料：
 
-`张果\_博客园\_一小时学会Git <https://www.cnblogs.com/best/p/7474442.html#_label0>`__
+`入门博客__张果 <https://www.cnblogs.com/best/p/7474442.html#_label0>`__
 
-https://git-scm.com/
+`总结性查询 <https://www.runoob.com/git/git-tutorial.html>`__
+
+`官网手册查询 <https://git-scm.com/docs>`__
 
 .. _header-n8:
 
@@ -19,6 +21,12 @@ https://git-scm.com/
 
 1、简介
 ~~~~~~~
+
+Git
+是一种在全球范围都广受欢迎的版本控制系统。在开发过程中，为了跟踪代码、文档、项目等信息中的变化，版本控制变得前所未有的重要。
+
+版本控制系统有很多，Git 是一种分布式版本控制系统，与其他系统相比，Git
+的特点是：
 
 **优点：**
 
@@ -135,7 +143,7 @@ https://git-scm.com/
 
 **暂存区**\ ：由工作区添加，可保存一些临时的更改。
 
-**历史仓库区**\ ：存放所有提交的版本的信息。Head
+**历史仓库**\ ：存放所有提交的版本的信息。Head
 指针指向最近一次提交的版本。
 
 **远程仓库**\ ：远程仓库，托管代码的服务器，保存完整的仓库。
@@ -156,7 +164,7 @@ Git 的工作流程一般是这样的：
 4. 工作完毕后将本地仓库 Push 到远程仓库。
 
 因此，Git
-管理的文件有三种状态：已修改(modified)，已暂存(staged)，已提交(committed)。
+管理的文件有三种常见状态：已修改(modified)，已暂存(staged)，已提交(committed)。
 
 .. _header-n119:
 
@@ -401,10 +409,10 @@ checkout，语法格式如下：
 
 .. code:: shell
 
-   #查看指定文件状态
-   git status [filename]
-
-   #查看所有文件状态
+   #查看指定文件状态
+   git status [filename]
+   
+   #查看所有文件状态
    git status
 
 .. _header-n189:
@@ -439,7 +447,7 @@ checkout，语法格式如下：
 
 .. code:: shell
 
-   git clean [options] 
+   git clean [options] 
    #一般会加上参数-df，-d表示包含目录，-f表示强制清除。
 
 .. _header-n196:
@@ -447,17 +455,32 @@ checkout，语法格式如下：
 （3）文件修改
 ^^^^^^^^^^^^^
 
-查看文件修改后的差异。
+.. _header-n197:
+
+差异
+''''
 
 .. code:: shell
 
+   #显示WorkSpace中的文件和暂存区文件的差异。
    git diff [files]
-   #若不加 files 则查看所有有改动的文件。
 
-.. _header-n199:
+.. code:: shell
 
-**签出**
-''''''''
+   #比较暂存区的文件与之前已经提交过的文件
+   git diff --cached [files]
+
+.. code:: shell
+
+   #比较repo与工作空间中的文件差异
+   git diff HEAD~n [files]
+
+若不加 files 则查看所有有改动的文件。
+
+.. _header-n273:
+
+签出
+''''
 
 检出命令git
 checkout是git最常用的命令之一，同时也是一个很危险的命令，因为这条命令会重写工作区
@@ -695,7 +718,7 @@ Git。
 
 为了便于管理，Git要求每个远程主机都必须指定一个主机名。克隆版本库的时候，所使用的远程主机自动被Git命名为\ ``origin``\ 。如果想用其他的主机名，需要用\ ``git clone``\ 命令的\ ``-o``\ 选项指定。
 
-.. _header-n262:
+.. _header-n259:
 
 常用命令
 ~~~~~~~~
